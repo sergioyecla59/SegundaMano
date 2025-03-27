@@ -93,8 +93,8 @@
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" required>
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" required>
             </div>
             <div>
                 <label for="email">Email:</label>
