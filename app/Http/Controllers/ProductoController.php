@@ -57,18 +57,18 @@ class ProductoController extends Controller
 
     public function update(Request $request, Producto $producto)
 {
-    dd($request->all());
+    //dd($request->all());
     // Validación de datos
     $request->validate([
         'nombre' => 'required|string|max:255',
         'precio' => 'required|numeric|min:0',
-        //'categoria_id' => 'exists:categorias,id',
+        'categoria_id' => 'exists:categorias,id',
     ]);
 
     // Actualización del producto
     $producto->nombre = $request->input('nombre');
     $producto->precio = $request->input('precio');
-    //$producto->categoria_id = $request->input('categoria_id');
+    $producto->categoria_id = $request->input('categoria_id');
     $producto->save();
     
     return Redirect::route('productos.index')->with('success', 'Producto actualizado correctamente.');

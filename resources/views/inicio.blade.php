@@ -93,6 +93,9 @@
             <div class="button-container">
                 <a href="{{ route('productos.index') }}" class="btn">Productos</a>
             </div>
+            <div class="button-container">
+                <a href="{{ route('categorias.index') }}" class="btn">Categorias</a>
+            </div>
         </div>
     </div>
 </body>

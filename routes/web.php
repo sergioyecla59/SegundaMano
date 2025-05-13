@@ -28,12 +28,14 @@ Route::get('/inicio', function() {
 Route::middleware(['auth'])->group(function () {
 
     // Rutas de categorías
-    Route::get('/categorias', function () {
-        return view('categorias');
-    })->name('categorias');
+    Route::resource('categorias', CategoriaController::class);
+    Route::get('categorias/{categoria}/productos', [CategoriaController::class, 'verProductos'])->name('categorias.productos');
+
 
     // Rutas de productos (ahora correctamente definidas con el controlador)
     Route::resource('productos', ProductoController::class);
+    Route::get('categorias/{categoria}/productos', [CategoriaController::class, 'verProductos'])->name('categorias.productos');
+
 
     // Rutas de ventas
     Route::get('/ventas', function () {

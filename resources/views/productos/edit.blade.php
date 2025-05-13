@@ -13,6 +13,6 @@
             <label for="precio" class="form-label">Precio</label>
             <input type="number" name="precio" id="precio" class="form-control" value="{{ $producto->precio }}" required>
         </div>
-        <button type="submit" class="btn btn-warning">Actualizar</button>
+        <button type="submit" class="btn btn-warning" >Actualizar</button>
     </form>
 @endsection

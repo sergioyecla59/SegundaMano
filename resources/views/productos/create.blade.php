@@ -12,14 +12,14 @@
             <label for="precio" class="form-label">Precio</label>
             <input type="number" name="precio" id="precio" class="form-control" required>
         </div>
-        <!--<div class="mb-3">
+        <div class="mb-3">
             <label for="categoria_id" class="form-label">Categoría</label>
             <select name="categoria_id" id="categoria_id" class="form-control">
                 @foreach($categorias as $categoria)
                     <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                 @endforeach
             </select>
-        </div>-->
+        </div>
         <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 @endsection
