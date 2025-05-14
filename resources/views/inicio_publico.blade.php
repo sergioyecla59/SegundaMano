@@ -70,13 +70,20 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #1f2937;">
         <div class="container-fluid d-flex justify-content-between align-items-center py-3">
-            <a class="navbar-brand text-white fs-2 fw-bold" href="#">Mercado Segunda Mano</a>
+            <a class="navbar-brand text-white fs-2 fw-bold d-flex align-items-center" href="#">
+                <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" 
+                     alt="Logo" 
+                     style="height: 50px; background-color: yellow; border-radius: 10px; padding: 4px;" 
+                     class="me-2">
+                Mercado Segunda Mano
+            </a>
             <div class="d-flex gap-2">
                 <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg">Iniciar Sesión</a>
                 <a href="{{ route('register') }}" class="btn btn-warning btn-lg text-dark fw-bold">Registrarse</a>
             </div>
         </div>
     </nav>
+    
 
     <div class="bg-overlay">
         <div class="container">

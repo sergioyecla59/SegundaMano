@@ -20,7 +20,7 @@
         }
 
         .main-header {
-            background-color: firebrick !important; /* Navbar negro para mayor contraste */
+            background-color: firebrick !important;
             color: white;
         }
 
@@ -31,8 +31,8 @@
         }
 
         .navbar-brand img {
-            height: 70px; /* Más grande para mejor visibilidad */
-            filter: brightness(1.2); 
+            height: 70px;
+            filter: brightness(1.2);
         }
 
         .navbar-nav .nav-link {
@@ -43,9 +43,25 @@
             color: #ff4d4d;
         }
 
+        /* Fondo con 2 imágenes solo en content-wrapper */
         .content-wrapper {
-            background-color:darkgray ;
+            background-image: 
+                url('https://media.istockphoto.com/id/1400086779/es/foto/interior-de-la-tienda-de-caridad-o-tienda-de-segunda-mano-que-vende-ropa-usada-y-sostenible-y.jpg?s=612x612&w=0&k=20&c=EVf4j-LDhDhmtPZ-XfzUxMx87-UNdQGhDU_Jcc9PSAA='),
+                url('https://media.istockphoto.com/id/1400086779/es/foto/interior-de-la-tienda-de-caridad-o-tienda-de-segunda-mano-que-vende-ropa-usada-y-sostenible-y.jpg?s=612x612&w=0&k=20&c=EVf4j-LDhDhmtPZ-XfzUxMx87-UNdQGhDU_Jcc9PSAA=');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
         }
 
         .btn-primary {
@@ -100,22 +116,23 @@
             color: #bd2130;
             font-weight: bold;
         }
-        .btn-custom {
-        background-color: firebrick; 
-        color:#D3D3D3 ;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-    }
 
-    .btn-custom:hover {
-        background-color: #D3D3D3;
-        color: black;
-    }
+        .btn-custom {
+            background-color: firebrick;
+            color: #D3D3D3;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-custom:hover {
+            background-color: #D3D3D3;
+            color: black;
+        }
     </style>
 </head>
 <body class="hold-transition layout-top-nav">

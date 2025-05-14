@@ -84,7 +84,10 @@
 </head>
 <body>
     <div class="login-container">
-        <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo" class="logo">
+        <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" 
+        alt="Logo" 
+        class="logo" 
+        style="background-color: yellow; padding: 10px; border-radius: 15px;">
         <h1>Iniciar sesión</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
