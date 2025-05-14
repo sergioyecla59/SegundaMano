@@ -7,10 +7,10 @@ use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\InicioController;
 
 // Ruta principal - Si no está autenticado, va al login
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
-
+Route::get('/', [InicioController::class, 'index'])->name('inicio.publico');
 // Rutas de login y registro sin autenticación
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

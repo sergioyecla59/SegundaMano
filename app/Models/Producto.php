@@ -14,6 +14,7 @@ class Producto extends Model
         'precio',
         'user_id',
         'categoria_id',
+        'imagen_url',
     ];
 
     // Relación con el usuario

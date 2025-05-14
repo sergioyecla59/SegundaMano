@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="mb-4">Listado de Categorías</h1>
 
-    <a href="{{ route('categorias.create') }}" class="btn btn-success mb-3">Crear nueva categoría</a>
+    <a href="{{ route('categorias.create') }}" class="btn-custom">Crear nueva categoría</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>

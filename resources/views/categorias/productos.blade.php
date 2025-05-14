@@ -13,7 +13,7 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Precio</th>
-                    <th>Descripción</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,8 +21,14 @@
                     <tr>
                         <td>{{ $producto->id }}</td>
                         <td>{{ $producto->nombre }}</td>
-                        <td>{{ $producto->precio }}</td>
-                        <td>{{ $producto->descripcion }}</td>
+                        <td>{{ $producto->precio }} €</td>
+                        <td>
+                            @if($producto->imagen_url)
+                                <img src="{{ $producto->imagen_url }}" alt="Imagen del producto" style="max-width: 100px; height: auto;">
+                            @else
+                                <span class="text-muted">Sin imagen</span>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

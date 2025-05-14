@@ -12,6 +12,7 @@ class ProductoController extends Controller
 {
     public function index()
     {
+        
         $productos = Producto::all();
         return \view('productos.index', \compact('productos'));
     }
@@ -23,26 +24,30 @@ class ProductoController extends Controller
     }
 
     public function store(Request $request)
-    {
-        if (Auth::check()) {
-            $request->validate([
-                'nombre' => 'required|string|max:255',
-                'precio' => 'required|numeric|min:0',
-                'categoria_id' => 'exists:categorias,id',
-            ]);
+{
+    if (Auth::check()) {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'precio' => 'required|numeric|min:0',
+            'categoria_id' => 'exists:categorias,id',
+            'imagen_url' => 'nullable|url|max:255',
 
-            Producto::create([
-                'nombre' => $request->nombre,
-                'precio' => $request->precio,
-                'user_id' => Auth::id(),
-                'categoria_id' => $request->categoria_id,
-            ]);
+        ]);
 
-            return Redirect::route('productos.index')->with('success', 'Producto creado correctamente.');
-        } else {
-            return Redirect::route('login')->with('error', 'Por favor, inicie sesión para continuar.');
-        }
+        Producto::create([
+            'nombre' => $request->nombre,
+            'precio' => $request->precio,
+            'user_id' => Auth::id(),
+            'categoria_id' => $request->categoria_id,
+            'imagen_url' => $request->imagen_url,
+        ]);
+
+        return Redirect::route('productos.index')->with('success', 'Producto creado correctamente.');
+    } else {
+        return Redirect::route('login')->with('error', 'Por favor, inicie sesión para continuar.');
     }
+}
+
 
     public function show(Producto $producto)
     {
@@ -63,12 +68,15 @@ class ProductoController extends Controller
         'nombre' => 'required|string|max:255',
         'precio' => 'required|numeric|min:0',
         'categoria_id' => 'exists:categorias,id',
+        'imagen_url' => 'nullable|url|max:255',
+
     ]);
 
     // Actualización del producto
     $producto->nombre = $request->input('nombre');
     $producto->precio = $request->input('precio');
     $producto->categoria_id = $request->input('categoria_id');
+    $producto->imagen_url = $request->input('imagen_url');
     $producto->save();
     
     return Redirect::route('productos.index')->with('success', 'Producto actualizado correctamente.');

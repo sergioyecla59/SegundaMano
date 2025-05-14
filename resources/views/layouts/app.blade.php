@@ -1,133 +1,171 @@
-<!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado Segunda Mano</title>
+
+    <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+
     <style>
         body {
-            background-color: gray; /* Fondo oscuro */
+            background-color: #121212; 
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .navbar {
-            background-color: #343a40; /* Fondo oscuro en la navbar */
-            padding: 15px;
+        .main-header {
+            background-color: firebrick !important; /* Navbar negro para mayor contraste */
+            color: white;
         }
 
-        .navbar-brand, .nav-link {
-            color: red;
+        .brand-text {
+            color: white;
             font-weight: bold;
+            font-size: 1.8rem;
         }
 
-        .container {
-            background-color: #1c1c1c; /* Fondo oscuro para el contenedor principal */
+        .navbar-brand img {
+            height: 70px; /* Más grande para mejor visibilidad */
+            filter: brightness(1.2); 
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff4d4d;
+        }
+
+        .content-wrapper {
+            background-color:darkgray ;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
         }
 
         .btn-primary {
-            background-color: #444444; /* Botones de color negro */
-            border-color: #000000;
-            color: white;
+            background-color: #0069d9;
+            border-color: #0062cc;
         }
 
         .btn-primary:hover {
-            background-color: green; /* Efecto hover para los botones */
-            border-color: #444444;
+            background-color: #005cbf;
         }
 
-        .btn-success {
-            background-color: #28a745;
-            border-color: #28a745;
-        }
-
-        .btn-success:hover {
-            background-color: #1e7e34;
+        .btn-warning, .btn-danger, .btn-success {
+            border: none;
         }
 
         .btn-warning {
             background-color: #ffc107;
-            border-color: #ffc107;
+            color: #212529;
         }
 
         .btn-warning:hover {
-            background-color: #d39e00;
+            background-color: #e0a800;
         }
 
         .btn-danger {
             background-color: #dc3545;
-            border-color: #dc3545;
         }
 
         .btn-danger:hover {
             background-color: #bd2130;
         }
 
-        .form-control {
-            border-radius: 5px;
-            background-color: #333; /* Fondo de los inputs en oscuro */
-            color: white; /* Texto blanco en los inputs */
+        .btn-success {
+            background-color: #28a745;
         }
 
-        .form-control:focus {
-            background-color: #555;
-            border-color: #007bff;
-            color: white;
+        .btn-success:hover {
+            background-color: #218838;
         }
 
         .table {
-            background: #2d2d2d; /* Fondo oscuro para la tabla */
-            color: white; /* Texto blanco en la tabla */
-            border-radius: 10px;
-            overflow: hidden;
+            background-color: #343a40;
+            color: white;
         }
 
-        .table th, .table td {
-            border-color: #444; /* Borde oscuro en la tabla */
+        .table th,
+        .table td {
+            border-color: #444;
         }
-        h1{
-            color: red;
-            font-weight: bold;            
+
+        h1, h2, h3 {
+            color: #bd2130;
+            font-weight: bold;
         }
+        .btn-custom {
+        background-color: firebrick; 
+        color:#D3D3D3 ;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-custom:hover {
+        background-color: #D3D3D3;
+        color: black;
+    }
     </style>
 </head>
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <a href="{{ route('inicio.publico') }}" class="navbar-brand d-flex align-items-center">
+                    <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo">
+                    <span class="brand-text ms-2">Mercado Segunda Mano</span>
+                </a>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <h1>Mercado Segunda Mano</h1>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <!-- Botones de navegación -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('productos.create') }}">Vender Producto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('inicio') }}">Inicio</a>
-                    </li>
-                </ul>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('inicio') }}">
+                                <i class="fas fa-home"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('productos.index') }}">
+                                <i class="fas fa-box"></i> Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categorias.index') }}">
+                                <i class="fas fa-tags"></i> Categorías
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('inicio.publico') }}">
+                                <i class="fas fa-sign-out-alt"></i> Salir
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content-wrapper">
+            <div class="container">
+                @yield('content')
             </div>
         </div>
-    </nav>
-
-    <main class="container mt-4">
-        @yield('content')
-    </main>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 </body>
-
 </html>
-
-
-
