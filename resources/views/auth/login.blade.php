@@ -76,7 +76,6 @@
             font-weight: bold;
             text-decoration: underline;
         }
-
         a:hover {
             color: #ffd700;
         }

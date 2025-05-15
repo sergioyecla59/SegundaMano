@@ -9,11 +9,11 @@ class InicioController extends Controller
 {
     public function index()
     {
-        // Cargar todas las categorías con hasta 4 productos aleatorios
+        // Solo categorías con productos del user_id = 1
         $categorias = Categoria::with(['productos' => function ($query) {
-            $query->inRandomOrder()->take(4);
+            $query->where('user_id', 1)->inRandomOrder()->take(4);
         }])->get();
-
+    
         return view('inicio_publico', compact('categorias'));
     }
 }

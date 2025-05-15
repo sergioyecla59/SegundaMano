@@ -17,7 +17,6 @@
                         <table class="table table-bordered table-hover text-center">
                             <thead class="bg-secondary text-white">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
                                     <th>Imagen</th> 
@@ -28,7 +27,6 @@
                             <tbody>
                                 @foreach ($productos as $producto)
                                     <tr>
-                                        <td>{{ $producto->id }}</td>
                                         <td>{{ $producto->nombre }}</td>
                                         <td>{{ $producto->precio }} €</td>
 
