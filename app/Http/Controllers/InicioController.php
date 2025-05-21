@@ -25,4 +25,5 @@ public function index(Request $request)
     return view('inicio_publico', compact('categorias', 'buscar'));
 }
 
+
 }

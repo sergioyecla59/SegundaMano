@@ -31,6 +31,7 @@
             color: white;
             font-weight: bold;
             font-size: 1.8rem;
+            white-space:nowrap;
         }
 
         .navbar-brand img {
@@ -136,6 +137,17 @@
             background-color: #D3D3D3;
             color: black;
         }
+        @media (max-width: 768px) {
+    .brand-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .brand-text {
+        font-size: 1rem;
+    }
+}
     </style>
 </head>
 <body class="hold-transition layout-top-nav">
@@ -166,7 +178,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('productos.index') }}">
-                                <i class="fas fa-box"></i> Productos
+                                <i class="fas fa-box"></i> Mis Productos
                             </a>
                         </li>
                         <li class="nav-item">

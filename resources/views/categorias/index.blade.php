@@ -13,7 +13,6 @@
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
-                <th>ID</th>
                 <th>Nombre</th>
                 <th>Acciones</th>
             </tr>
@@ -21,7 +20,6 @@
         <tbody>
             @forelse($categorias as $categoria)
                 <tr>
-                    <td>{{ $categoria->id }}</td>
                     <td>{{ $categoria->nombre }}</td>
                     <td>
                         <a href="{{ route('categorias.edit', $categoria) }}" class="btn btn-warning btn-sm">Editar</a>
