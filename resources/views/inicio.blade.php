@@ -43,7 +43,7 @@
 
     /* Estilo personalizado para los botones */
     .btn-custom {
-        background-color: #D3D3D3; 
+        background-color: #D3D3D3;
         color: darkgoldenrod;
         border: none;
         padding: 10px 20px;
@@ -74,10 +74,5 @@
     <div class="welcome-box">
         <h1>Bienvenido al Mercado de Segunda Mano</h1>
         <p>Explora nuestros productos y categorías. ¡Encuentra las mejores ofertas de segunda mano!</p>
-        <div class="btn-group-custom d-flex justify-content-center flex-wrap">
-            <a href="{{ route('productos.index') }}" class="btn-custom">Ver Productos</a>
-            <a href="{{ route('categorias.index') }}" class="btn-custom">Ver Categorías</a>
-        </div>
-    </div>
-</div>
+
 @endsection

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
@@ -20,8 +22,8 @@
                                     <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
-                                    <th>Imagen</th> 
-                                    <th>Imagen URL</th> 
+                                    <th>Imagen</th>
+                                    <th>Imagen URL</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -70,6 +72,12 @@
                                                 <button type="submit" class="btn btn-sm btn-danger"
                                                     onclick="return confirm('¿Estás seguro de eliminar este producto?')">
                                                     <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success w-100">
+                                                    <i class="fas fa-cart-plus"></i> Añadir al carrito
                                                 </button>
                                             </form>
                                         </td>

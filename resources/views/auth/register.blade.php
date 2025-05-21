@@ -106,7 +106,7 @@
 
         <p>¿Ya tienes cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
 
-        <form action="{{ route('inicio.publico') }}" method="GET" style="margin-top: 15px;">
+        <form action="{{ route('inicio_publico') }}" method="GET" style="margin-top: 15px;">
             <button type="submit" class="inicio_publico">Inicio</button>
         </form>
     </div>

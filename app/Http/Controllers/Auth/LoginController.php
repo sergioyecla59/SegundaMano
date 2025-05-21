@@ -34,13 +34,17 @@ class LoginController extends Controller
             // Si las credenciales son correctas, autenticar al usuario
             Auth::login($user);
 
-            // Redirigir al inicio
-            return redirect()->route('inicio');
+            // Obtener URL de redirección si existe
+            $redirect = $request->input('redirect');
+
+            // Redirigir al destino o a inicio
+            return redirect()->intended($redirect ?? route('inicio'));
         } else {
             // Si las credenciales son incorrectas, mostrar error
             return back()->withErrors(['email' => 'Credenciales incorrectas']);
         }
     }
+
 
     // Método para cerrar sesión
     public function logout()

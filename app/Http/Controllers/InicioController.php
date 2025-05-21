@@ -7,14 +7,22 @@ use App\Models\Categoria;
 
 class InicioController extends Controller
 {
-    public function index()
-    {
-        // Cargar todas las categorías con hasta 4 productos aleatorios
-        $categorias = Categoria::with(['productos' => function ($query) {
-            $query->inRandomOrder()->take(4);
-        }])->get();
+    // Productos aleatorios por categoría
+  // app/Http/Controllers/InicioController.php
 
-        return view('inicio_publico', compact('categorias'));
-    }
+public function index(Request $request)
+{
+    $buscar = $request->input('buscar');
+
+    $categorias = Categoria::with(['productos' => function ($query) use ($buscar) {
+        if ($buscar) {
+            $query->where('nombre', 'like', '%' . $buscar . '%');
+        } else {
+            $query->inRandomOrder()->take(4);
+        }
+    }])->get();
+
+    return view('inicio_publico', compact('categorias', 'buscar'));
 }
-?>
+
+}

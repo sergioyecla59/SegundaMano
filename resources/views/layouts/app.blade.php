@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado Segunda Mano</title>
 
+
+
+
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -14,7 +17,7 @@
 
     <style>
         body {
-            background-color: #121212; 
+            background-color: #121212;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -45,7 +48,7 @@
 
         /* Fondo con 2 imágenes solo en content-wrapper */
         .content-wrapper {
-            background-image: 
+            background-image:
                 url('https://media.istockphoto.com/id/1400086779/es/foto/interior-de-la-tienda-de-caridad-o-tienda-de-segunda-mano-que-vende-ropa-usada-y-sostenible-y.jpg?s=612x612&w=0&k=20&c=EVf4j-LDhDhmtPZ-XfzUxMx87-UNdQGhDU_Jcc9PSAA='),
                 url('https://media.istockphoto.com/id/1400086779/es/foto/interior-de-la-tienda-de-caridad-o-tienda-de-segunda-mano-que-vende-ropa-usada-y-sostenible-y.jpg?s=612x612&w=0&k=20&c=EVf4j-LDhDhmtPZ-XfzUxMx87-UNdQGhDU_Jcc9PSAA=');
             background-size: cover;
@@ -136,10 +139,16 @@
     </style>
 </head>
 <body class="hold-transition layout-top-nav">
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+@endif
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand-md navbar-dark">
             <div class="container">
-                <a href="{{ route('inicio.publico') }}" class="navbar-brand d-flex align-items-center">
+                <a href="{{ route('inicio_publico') }}" class="navbar-brand d-flex align-items-center">
                     <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo">
                     <span class="brand-text ms-2">Mercado Segunda Mano</span>
                 </a>
@@ -165,8 +174,11 @@
                                 <i class="fas fa-tags"></i> Categorías
                             </a>
                         </li>
+                        <a href="{{ route('carrito.index') }}" class="btn btn-outline-warning btn-lg">
+                            <i class="fas fa-shopping-cart"></i> Carrito
+                        </a>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inicio.publico') }}">
+                            <a class="nav-link" href="{{ route('inicio_publico') }}">
                                 <i class="fas fa-sign-out-alt"></i> Salir
                             </a>
                         </li>

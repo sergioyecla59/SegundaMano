@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Inicio - Mercado Segunda Mano</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- AdminLTE -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
 
@@ -71,19 +71,34 @@
     <nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #1f2937;">
         <div class="container-fluid d-flex justify-content-between align-items-center py-3">
             <a class="navbar-brand text-white fs-2 fw-bold d-flex align-items-center" href="#">
-                <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" 
-                     alt="Logo" 
-                     style="height: 50px; background-color: yellow; border-radius: 10px; padding: 4px;" 
+                <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2"
+                     alt="Logo"
+                     style="height: 50px; background-color: yellow; border-radius: 10px; padding: 4px;"
                      class="me-2">
                 Mercado Segunda Mano
             </a>
+            <div style="text-align:center; margin-top: 20px;">
+                <form action="{{ route('inicio_publico') }}" method="GET">
+                    <input type="text" name="buscar" placeholder="Buscar productos..." value="{{ request('buscar') }}" style="padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+                    <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px;">Buscar</button>
+                </form>
+
+            </div>
+
             <div class="d-flex gap-2">
                 <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg">Iniciar Sesión</a>
                 <a href="{{ route('register') }}" class="btn btn-warning btn-lg text-dark fw-bold">Registrarse</a>
+
+                    <a href="{{ route('login') }}" class="btn btn-outline-warning btn-lg">
+                        <i class="fas fa-shopping-cart"></i> Carrito
+                    </a>
             </div>
+
+
+
         </div>
     </nav>
-    
+
 
     <div class="bg-overlay">
         <div class="container">
@@ -102,6 +117,15 @@
                                         <h5 class="card-title">{{ $producto->nombre }}</h5>
                                         <p class="card-text">{{ Str::limit($producto->descripcion, 60) }}</p>
                                         <p class="card-text fw-bold text-primary">{{ $producto->precio }} €</p>
+                                        <div class="mt-3">
+
+                                                <a href="{{ route('login') }}" class="btn btn-warning w-100">
+                                                    <i class="fas fa-cart-plus"></i> Añadir al carrito
+                                                </a>
+
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
