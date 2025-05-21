@@ -136,8 +136,35 @@
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+ <!-- Footer -->
+ <footer class="bg-secondary text-light py-4 mt-5">
+    <div class="container">
+        <div class="row footer-links">
+            <div class="col-md-4 mb-3">
+                <h5>Mercado Segunda Mano</h5>
+                <p>Tu plataforma de compra y venta de segunda mano de confianza.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Contacto</h5>
+                <p>Email: <a href="mailto:contacto@mercadosegundamano.com">contacto@mercadosegundamano.com</a></p>
+                <p>Teléfono: <a href="tel:+34600000000">+34 600 000 000</a></p>
+                <p>Horario: Lunes a Viernes, 9:00 - 18:00</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Dónde Estamos</h5>
+                <p>Calle Falsa 123, Madrid, España</p>
+                <p>CP: 28000</p>
+                <p>Mapa: <a href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=es&msa=0&ll=40.45303870000002%2C-3.6883336999999927&spn=0.02829%2C0.054932&t=h&z=14&mid=1ryEzMTpqehcvl1qC9sJy4p4lznY" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+            </div>
+        </div>
+        <div class="text-center pt-3 border-top border-secondary">
+            &copy; {{ date('Y') }} Mercado Segunda Mano. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 </body>
 </html>
