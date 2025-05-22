@@ -158,7 +158,7 @@
     </div>
 @endif
     <div class="wrapper">
-        <nav class="main-header navbar navbar-expand-md navbar-dark">
+        <nav class="main-header navbar navbar-dark">
             <div class="container">
                 <a href="{{ route('inicio_publico') }}" class="navbar-brand d-flex align-items-center">
                     <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo">
@@ -185,7 +185,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('productos.index') }}">
-                                <i class="fas fa-box"></i> Mis Productos
+                                <i class="fas fa-box"></i> Productos
                             </a>
                         </li>
                         <li class="nav-item">
@@ -195,7 +195,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ventas.index') }}">
-                                <i class="fas fa-receipt"></i> Historial de compras
+                                <i class="fas fa-receipt"></i> Compras
                             </a>
                         </li>
 
