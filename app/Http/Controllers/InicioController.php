@@ -26,11 +26,19 @@ public function index(Request $request)
 }
 
 
-public function mostrar()
+public function mostrar(Request $request)
 {
-    $categorias = Categoria::with('productos')->get();
+    $buscar = $request->input('buscar');
 
-    return view('inicio', compact('categorias'));
+    $categorias = Categoria::with(['productos' => function ($query) use ($buscar) {
+        if ($buscar) {
+            $query->where('nombre', 'like', '%' . $buscar . '%');
+        } else {
+            $query->inRandomOrder()->take(4); // Muestra 4 productos aleatorios por categoría
+        }
+    }])->get();
+
+    return view('inicio', compact('categorias', 'buscar'));
 }
 
 

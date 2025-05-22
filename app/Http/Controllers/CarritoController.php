@@ -4,61 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Venta;
 
 class CarritoController extends Controller
 {
-
-    public function pago($id)
-    {
-        $carrito = session()->get('carrito', []);
-
-        if (!isset($carrito[$id])) {
-            return redirect()->route('carrito.index')->with('error', 'Producto no encontrado en el carrito.');
-        }
-
-        $producto = $carrito[$id];
-        $total = $producto['precio'] * $producto['cantidad'];
-
-        return view('carrito.pago', compact('producto', 'total', 'id'));
-    }
-
-
-
-public function finalizarCompra(Request $request, $id)
-{
-    // Validar datos del formulario
-    $request->validate([
-        'card_number' => ['required', 'digits:16'],
-        'expiry' => ['required', 'regex:/^(0[1-9]|1[0-2])\/\d{2}$/'],
-        'cvc' => ['required', 'digits:3'],
-        'name' => ['required', 'string', 'max:255'],
-    ]);
-
-    // Obtener carrito
-    $carrito = session()->get('carrito', []);
-
-    // Verificar si el producto existe en el carrito
-    if (isset($carrito[$id])) {
-        // Eliminar producto del carrito
-        unset($carrito[$id]);
-        session()->put('carrito', $carrito);
-    } else {
-        return redirect()->back()->with('error', 'El producto no se encontró en el carrito.');
-    }
-
-    // Aquí iría la lógica real de pago (simulado)
-
-    // Redirigir con mensaje de éxito
-    return redirect()->route('carrito.index')->with('success', 'Compra realizada con éxito.');
-}
-
-
 
     public function index()
     {
         $carrito = session()->get('carrito', []);
         return view('carrito.index', compact('carrito'));
     }
+
 
     public function agregar($id)
     {
@@ -94,5 +50,61 @@ public function finalizarCompra(Request $request, $id)
 
         return redirect()->route('carrito.index')->with('success', 'Producto eliminado del carrito.');
     }
+
+    public function pago($id)
+    {
+        $carrito = session()->get('carrito', []);
+
+        if (!isset($carrito[$id])) {
+            return redirect()->route('carrito.index')->with('error', 'Producto no encontrado en el carrito.');
+        }
+
+        $producto = $carrito[$id];
+        $total = $producto['precio'] * $producto['cantidad'];
+
+        return view('carrito.pago', compact('producto', 'total', 'id'));
+    }
+
+    // app/Http/Controllers/CarritoController.php
+
+
+
+    public function finalizarCompra(Request $request, $id)
+    {
+        $carrito = session()->get('carrito', []);
+
+        if (!isset($carrito[$id])) {
+            return redirect()->route('carrito.index')->with('error', 'Producto no encontrado en el carrito.');
+        }
+
+        $producto = $carrito[$id];
+
+        // Validar campos de pago simulados (opcional)
+        $request->validate([
+            'card_number' => 'required',
+            'expiry' => 'required',
+            'cvc' => 'required',
+            'name' => 'required|string|max:255',
+        ]);
+
+        // Registrar la venta
+        Venta::create([
+            'producto' => $producto['nombre'],
+            'precio' => $producto['precio'],
+            'cantidad' => $producto['cantidad'],
+            'total' => $producto['precio'] * $producto['cantidad'],
+            'titular' => $request->input('name'),
+        ]);
+
+        // Eliminar del carrito
+        unset($carrito[$id]);
+        session()->put('carrito', $carrito);
+
+        return redirect()->route('carrito.index')->with('success', '¡Compra registrada y producto eliminado del carrito!');
+    }
+
+
+
+
 }
 

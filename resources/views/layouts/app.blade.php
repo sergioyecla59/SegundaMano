@@ -164,6 +164,13 @@
                     <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo">
                     <span class="brand-text ms-2">Mercado Segunda Mano</span>
                 </a>
+                <div style="text-align:center; margin-top: 20px;">
+                    <form action="{{ route('inicio') }}" method="GET">
+                        <input type="text" name="buscar" placeholder="Buscar productos..." value="{{ request('buscar') }}" style="padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
+                        <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px;">Buscar</button>
+                    </form>
+
+                </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -186,9 +193,17 @@
                                 <i class="fas fa-tags"></i> Categorías
                             </a>
                         </li>
-                        <a href="{{ route('carrito.index') }}" class="btn btn-outline-warning btn-lg">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('ventas.index') }}">
+                                <i class="fas fa-receipt"></i> Historial de compras
+                            </a>
+                        </li>
+
+                        <li>
+                        <a class="nav-link" href="{{ route('carrito.index') }}" >
                             <i class="fas fa-shopping-cart"></i> Carrito
                         </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('inicio_publico') }}">
                                 <i class="fas fa-sign-out-alt"></i> Salir

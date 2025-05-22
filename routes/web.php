@@ -12,6 +12,8 @@ use App\Models\Producto;
 use App\Http\Controllers\CarritoController;
 
 
+Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
+
 
 Route::get('/inicio', [InicioController::class, 'mostrar'])->name('inicio');
 
@@ -58,10 +60,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('categorias/{categoria}/productos', [CategoriaController::class, 'verProductos'])->name('categorias.productos');
 
 
-    // Rutas de ventas
-    Route::get('/ventas', function () {
-        return view('ventas');
-    })->name('ventas');
+
 
     // Rutas de usuarios
     Route::resource('usuarios', UserController::class)->only(['index', 'show']);

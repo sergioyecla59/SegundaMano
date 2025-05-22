@@ -117,7 +117,7 @@
                                         <p class="card-text fw-bold text-primary">{{ $producto->precio }} €</p>
                                         <div class="mt-3">
 
-                                                <a href="{{ route('login') }}" class="btn btn-warning w-100">
+                                                <a class="nav-link" href="{{ route('login') }}">
                                                     <i class="fas fa-cart-plus"></i> Añadir al carrito
                                                 </a>
 
