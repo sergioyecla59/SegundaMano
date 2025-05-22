@@ -26,4 +26,13 @@ public function index(Request $request)
 }
 
 
+public function mostrar()
+{
+    $categorias = Categoria::with('productos')->get();
+
+    return view('inicio', compact('categorias'));
+}
+
+
+
 }

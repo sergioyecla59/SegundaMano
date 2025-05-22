@@ -12,7 +12,9 @@ class CategoriaController extends Controller
     {
         $categorias = Categoria::all();
         return view('categorias.index', compact('categorias'));
+
     }
+
 
     public function create()
     {
@@ -59,4 +61,6 @@ public function verProductos(Categoria $categoria)
     $productos = $categoria->productos; // relación definida en el modelo
     return view('categorias.productos', compact('categoria', 'productos'));
 }
+
+
 }

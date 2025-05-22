@@ -11,6 +11,13 @@ use App\Http\Controllers\InicioController;
 use App\Models\Producto;
 use App\Http\Controllers\CarritoController;
 
+
+
+Route::get('/inicio', [InicioController::class, 'mostrar'])->name('inicio');
+
+
+
+
 Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
 Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
 Route::post('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
@@ -34,9 +41,9 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 
 // Ruta de inicio para usuarios autenticados
-Route::get('/inicio', function() {
-    return view('inicio');
-})->middleware('auth')->name('inicio');
+//Route::get('/inicio', function() {
+  //  return view('inicio');
+//})->middleware('auth')->name('inicio');
 
 // Rutas protegidas por autenticación
 Route::middleware(['auth'])->group(function () {

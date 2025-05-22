@@ -199,12 +199,15 @@
             </div>
         </nav>
 
+
         <div class="content-wrapper">
             <div class="container">
                 @yield('content')
             </div>
         </div>
     </div>
+
+
 
      <!-- Footer -->
  <footer class="bg-secondary text-light py-4 mt-5">
@@ -222,9 +225,9 @@
             </div>
             <div class="col-md-4 mb-3">
                 <h5>Dónde Estamos</h5>
-                <p>Calle Falsa 123, Madrid, España</p>
+                <p>Av. de Concha Espina, 1, Chamartín, 28036 Madrid, España</p>
                 <p>CP: 28000</p>
-                <p>Mapa: <a href="https://www.google.com/maps/d/viewer?ie=UTF8&hl=es&msa=0&ll=40.45303870000002%2C-3.6883336999999927&spn=0.02829%2C0.054932&t=h&z=14&mid=1ryEzMTpqehcvl1qC9sJy4p4lznY" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></p>
+                <p>Mapa: <a href="https://earth.google.com/web/@40.4530387,-3.6883337,688.11790253a,624.92085394d,35y,0h,0t,0r/data=ChUaDwoJL20vMDFneGx0GAIgAUICCAE6AwoBMEICCABKDQj___________8BEAA" target="_blank" rel="noopener noreferrer">Ver en Google Earth</a></p>
             </div>
         </div>
         <div class="text-center pt-3 border-top border-secondary">
