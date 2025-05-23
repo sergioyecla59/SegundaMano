@@ -60,6 +60,19 @@
         color: black;
     }
 
+    /* Estilo para imágenes del carrusel */
+.carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Estilo para imágenes de productos */
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+
     @media (max-width: 576px) {
         .welcome-box h1 {
             font-size: 1.8rem;
@@ -71,12 +84,31 @@
     }
 </style>
 
-<div class="inicio-background">
-    <div class="welcome-box">
-        <h1>Bienvenido al Mercado de Segunda Mano</h1>
-        <p>Explora nuestros productos y categorías. ¡Encuentra las mejores ofertas de segunda mano!</p>
+<div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://st4.depositphotos.com/1006542/40923/i/450/depositphotos_409237196-stock-photo-woman-choosing-clothes-clothing-store.jpg"
+                class="d-block w-100" alt="Ropa vintage">
+        </div>
+        <div class="carousel-item">
+            <img src="https://us.123rf.com/450wm/alexmia/alexmia1910/alexmia191000012/132082958-ropa-de-mujer-a-la-moda-con-estilo-en-perchas-en-las-tiendas-concepto-de-compras-ventas-blanco.jpg?ver=6"
+                class="d-block w-100" alt="Tecnología usada">
+        </div>
+        <div class="carousel-item">
+            <img src="https://media.istockphoto.com/id/1415437494/es/foto/ropa-y-jeans-en-perchas-en-una-tienda-de-cerca.jpg?s=612x612&w=0&k=20&c=8EHUKqbck9qNbv4unl7vrbzUmA0x6FKrvakEySrgnh4="
+                class="d-block w-100" alt="Objetos varios">
+        </div>
     </div>
 </div>
+
 
 <div class="bg-overlay py-5">
     <div class="container">
