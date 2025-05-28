@@ -25,10 +25,12 @@ class CategoriaController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
+            'imagen_url' => 'nullable|url|max:255',
         ]);
 
         Categoria::create([
             'nombre' => $request->nombre,
+            'imagen_url' => $request->imagen_url,
         ]);
 
         return Redirect::route('categorias.index')->with('success', 'Categoría creada correctamente.');
@@ -48,10 +50,13 @@ public function update(Request $request, Categoria $categoria)
 {
     $request->validate([
         'nombre' => 'required|string|max:255',
+        'imagen_url' => 'nullable|url|max:255',
+
     ]);
 
     $categoria->update([
         'nombre' => $request->nombre,
+        'imagen_url' => $request->imagen_url,
     ]);
 
     return Redirect::route('categorias.index')->with('success', 'Categoría actualizada correctamente.');

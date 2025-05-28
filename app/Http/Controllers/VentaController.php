@@ -8,13 +8,13 @@ use App\Models\Venta;
 class VentaController extends Controller
 {
 
-    public function index()
-
+public function index()
 {
-
-    $ventas = Venta::latest()->get();
+    // Carga las ventas con los productos relacionados para evitar consultas N+1
+    $ventas = Venta::with('producto')->latest()->get();
 
     return view('ventas.index', compact('ventas'));
-
 }
+
+
 }

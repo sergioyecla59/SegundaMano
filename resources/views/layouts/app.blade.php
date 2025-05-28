@@ -6,6 +6,7 @@
     <title>Mercado Segunda Mano</title>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <!-- Bootstrap 5 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -142,6 +143,24 @@
             background-color: #D3D3D3;
             color: black;
         }
+            .hover-shadow:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .animate-fadein {
+        animation: fadein 0.8s ease-in;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
         @media (max-width: 768px) {
     .brand-text {
         font-size: 1.2rem;
@@ -239,15 +258,15 @@
             </div>
             <div class="col-md-4 mb-3">
                 <h5>Contacto</h5>
-                <p>Email: <a href="mailto:contacto@mercadosegundamano.com">contacto@mercadosegundamano.com</a></p>
-                <p>Teléfono: <a href="tel:+34600000000">+34 600 000 000</a></p>
+                <p>Email: <a style="color: #cfeeb2" href="mailto:contacto@mercadosegundamano.com">contacto@mercadosegundamano.com</a></p>
+                <p>Teléfono: <a style="color: #cfeeb2" href="tel:+34600000000">+34 600 000 000</a></p>
                 <p>Horario: Lunes a Viernes, 9:00 - 18:00</p>
             </div>
             <div class="col-md-4 mb-3">
                 <h5>Dónde Estamos</h5>
                 <p>Av. de Concha Espina, 1, Chamartín, 28036 Madrid, España</p>
                 <p>CP: 28000</p>
-                <p>Mapa: <a href="https://earth.google.com/web/@40.4530387,-3.6883337,688.11790253a,624.92085394d,35y,0h,0t,0r/data=ChUaDwoJL20vMDFneGx0GAIgAUICCAE6AwoBMEICCABKDQj___________8BEAA" target="_blank" rel="noopener noreferrer">Ver en Google Earth</a></p>
+                <p>Mapa: <a style="color: #cfeeb2" href="https://earth.google.com/web/@40.4530387,-3.6883337,688.11790253a,624.92085394d,35y,0h,0t,0r/data=ChUaDwoJL20vMDFneGx0GAIgAUICCAE6AwoBMEICCABKDQj___________8BEAA" target="_blank" rel="noopener noreferrer">Ver en Google Earth</a></p>
             </div>
         </div>
         <div class="text-center pt-3 border-top border-secondary">
@@ -255,6 +274,7 @@
         </div>
     </div>
 </footer>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>

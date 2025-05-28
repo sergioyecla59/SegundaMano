@@ -26,16 +26,18 @@ class CarritoController extends Controller
         $producto = Producto::findOrFail($id);
         $carrito = session()->get('carrito', []);
 
-        if (isset($carrito[$id])) {
-            $carrito[$id]['cantidad']++;
-        } else {
-            $carrito[$id] = [
-                'nombre' => $producto->nombre,
-                'precio' => $producto->precio,
-                'imagen_url' => $producto->imagen_url,
-                'cantidad' => 1
-            ];
-        }
+      if (isset($carrito[$id])) {
+    $carrito[$id]['cantidad']++;
+} else {
+    $carrito[$id] = [
+        'id' => $producto->id,          // <--- Aquí agregas el id
+        'nombre' => $producto->nombre,
+        'precio' => $producto->precio,
+        'imagen_url' => $producto->imagen_url,
+        'cantidad' => 1
+    ];
+}
+
 
         session()->put('carrito', $carrito);
 
@@ -94,6 +96,7 @@ class CarritoController extends Controller
             'cantidad' => $producto['cantidad'],
             'total' => $producto['precio'] * $producto['cantidad'],
             'titular' => $request->input('name'),
+            'producto_id' => $id,
         ]);
 
         // Eliminar del carrito

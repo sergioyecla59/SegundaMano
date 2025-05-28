@@ -7,7 +7,7 @@
         </div>
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>ID:</strong> {{ $producto->id }}</li>
+
                 <li class="list-group-item"><strong>Nombre:</strong> {{ $producto->nombre }}</li>
                 <li class="list-group-item"><strong>Precio:</strong> {{ $producto->precio }} €</li>
                 <li class="list-group-item"><strong>Categoría:</strong> {{ $producto->categoria->nombre ?? 'Sin categoría' }}</li>
