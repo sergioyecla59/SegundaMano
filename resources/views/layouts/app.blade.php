@@ -1,167 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado Segunda Mano</title>
 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-<!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Bootstrap 5 JS y Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bootstrap 5 + Bootstrap Icons + FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <!-- AdminLTE -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" rel="stylesheet">
+<style>
+ /* General */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-    <style>
-        body {
-            background-color: #121212;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+/* Fondo con imagen clara, sin oscurecerla */
+.content-wrapper {
+    background-image: url('https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=1470&q=80') ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 0px;
+    min-height: 0vh;
+    padding-top: 80px; /* o prueba con 100px si el navbar es más alto */
 
-        .main-header {
-            background-color: firebrick !important;
-            color: white;
-        }
+}
 
-        .brand-text {
-            color: white;
-            font-weight: bold;
-            font-size: 1.8rem;
-            white-space:nowrap;
-        }
+/* NAVBAR */
+.navbar {
+    background-color: #000 !important;
+    border-bottom: 1px solid #444;
+}
 
-        .navbar-brand img {
-            height: 70px;
-            filter: brightness(1.2);
-        }
+.navbar-brand img {
+    height: 50px;
+    filter: brightness(1.2);
+}
 
-        .navbar-nav .nav-link {
-            color: white;
-        }
+.navbar-brand .brand-text {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.6rem;
+    white-space: nowrap;
+}
 
-        .navbar-nav .nav-link:hover {
-            color: #ff4d4d;
-        }
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
 
-        /* Fondo con 2 imágenes solo en content-wrapper */
-        .content-wrapper {
-            background-image:
-                url('https://media.istockphoto.com/id/1400086779/es/foto/interior-de-la-tienda-de-caridad-o-tienda-de-segunda-mano-que-vende-ropa-usada-y-sostenible-y.jpg?s=612x612&w=0&k=20&c=EVf4j-LDhDhmtPZ-XfzUxMx87-UNdQGhDU_Jcc9PSAA='),
-                url('https://media.istockphoto.com/id/1400086779/es/foto/interior-de-la-tienda-de-caridad-o-tienda-de-segunda-mano-que-vende-ropa-usada-y-sostenible-y.jpg?s=612x612&w=0&k=20&c=EVf4j-LDhDhmtPZ-XfzUxMx87-UNdQGhDU_Jcc9PSAA=');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
+.navbar-nav .nav-link:hover {
+    color: #ccc;
+}
 
-        .content-wrapper::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
+/* BOTONES */
+.btn,
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
 
-        .btn-primary {
-            background-color: #0069d9;
-            border-color: #0062cc;
-        }
+.btn-primary {
+    background-color: #333;
+    color: #fff;
+}
 
-        .btn-primary:hover {
-            background-color: #005cbf;
-        }
+.btn-primary:hover {
+    background-color: #555;
+}
 
-        .btn-warning, .btn-danger, .btn-success {
-            border: none;
-        }
+.btn-custom {
+    background-color: #111;
+    color: #fff;
+}
 
-        .btn-warning {
-            background-color: #ffc107;
-            color: #212529;
-        }
+.btn-custom:hover {
+    background-color: #fff;
+    color: #000;
+}
 
-        .btn-warning:hover {
-            background-color: #e0a800;
-        }
+/* FORMULARIO DE BÚSQUEDA */
+form input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+}
 
-        .btn-danger {
-            background-color: #dc3545;
-        }
+form button {
+    margin-left: 10px;
+}
 
-        .btn-danger:hover {
-            background-color: #bd2130;
-        }
+/* TABLAS */
+.table {
+    background-color: #1a1a1a;
+    color: #fff;
+}
 
-        .btn-success {
-            background-color: #28a745;
-        }
+.table th,
+.table td {
+    border-color: #333;
+}
 
-        .btn-success:hover {
-            background-color: #218838;
-        }
+/* TEXTOS DESTACADOS */
+h1, h2, h3, h4 {
+    color: #fff;
+    font-weight: bold;
+}
 
-        .table {
-            background-color: #343a40;
-            color: white;
-        }
+/* FOOTER */
+footer {
+    background-color: #111;
+    color: #ddd;
+    padding: 40px 0;
+}
 
-        .table th,
-        .table td {
-            border-color: #444;
-        }
+footer a {
+    color: #bbb;
+    text-decoration: none;
+}
 
-        h1, h2, h3 {
-            color: #bd2130;
-            font-weight: bold;
-        }
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
 
-        .btn-custom {
-            background-color: firebrick;
-            color: #D3D3D3;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+.footer-links h5 {
+    color: #fff;
+    margin-bottom: 15px;
+}
 
-        .btn-custom:hover {
-            background-color: #D3D3D3;
-            color: black;
-        }
-            .hover-shadow:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-        transition: all 0.3s ease-in-out;
-    }
-
-    .animate-fadein {
-        animation: fadein 0.8s ease-in;
-    }
-
-    @keyframes fadein {
-        from { opacity: 0; transform: translateY(20px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .card {
-        transition: all 0.3s ease;
-    }
-        @media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 768px) {
     .brand-text {
         font-size: 1.2rem;
     }
@@ -171,112 +154,196 @@
     .brand-text {
         font-size: 1rem;
     }
+
+    form input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    form button {
+        width: 100%;
+    }
 }
-    </style>
+</style>
 </head>
+
 <body class="hold-transition layout-top-nav">
+
     @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
-@endif
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+    @endif
+
     <div class="wrapper">
-        <nav class="main-header navbar navbar-dark">
-            <div class="container">
-                <a href="{{ route('inicio_publico') }}" class="navbar-brand d-flex align-items-center">
-                    <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo">
-                    <span class="brand-text ms-2">Mercado Segunda Mano</span>
-                </a>
-                <div style="text-align:center; margin-top: 20px;">
-                    <form action="{{ route('inicio') }}" method="GET">
-                        <input type="text" name="buscar" placeholder="Buscar productos..." value="{{ request('buscar') }}" style="padding: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc;">
-                        <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px;">Buscar</button>
-                    </form>
-
-                </div>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inicio') }}">
-                                <i class="fas fa-home"></i> Inicio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('productos.index') }}">
-                                <i class="fas fa-box"></i> Productos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categorias.index') }}">
-                                <i class="fas fa-tags"></i> Categorías
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ventas.index') }}">
-                                <i class="fas fa-receipt"></i> Compras
-                            </a>
-                        </li>
-
-                        <li>
-                        <a class="nav-link" href="{{ route('carrito.index') }}" >
-                            <i class="fas fa-shopping-cart"></i> Carrito
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('inicio_publico') }}">
-                                <i class="fas fa-sign-out-alt"></i> Salir
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <!-- NAVBAR -->
+        <!-- NAVBAR CON BOTÓN PARA OFFCANVAS -->
+<nav class="navbar navbar-dark bg-black px-3">
+  <div class="container-fluid d-flex align-items-center">
+       <button class="btn btn-outline-light ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+      <i class="bi bi-list"></i>
+    </button>
+    <a class="navbar-brand d-flex align-items-center" href="{{ route('inicio_publico') }}">
+      <img src="https://images.unsplash.com/photo-1646627928830-bfa637cd24f3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHxsb2dvfGVufDB8fDB8fHww" alt="Logo" height="40" class="me-2">
+      <span class="brand-text">Mercado Segunda Mano</span>
+    </a>
+<div class="mx-auto" style="max-width: 500px; width: 100%;">
+  <form action="{{ route('inicio') }}" method="GET" class="d-flex">
+    <input type="text" name="buscar" class="form-control me-2" placeholder="Buscar productos..." value="{{ request('buscar') }}">
+    <button type="submit" class="btn btn-outline-light"><i class="bi bi-search"></i></button>
+  </form>
+</div>
 
 
+        <!-- Mini carrito a la derecha -->
+<!-- Mini carrito a la derecha - botón que abre offcanvas -->
+<button class="btn btn-outline-light position-relative ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCarrito" aria-controls="offcanvasCarrito">
+    <i class="fas fa-shopping-cart fs-5"></i>
+    @php
+        $totalItems = 0;
+        if(session()->has('carrito')){
+            foreach(session('carrito') as $item){
+                $totalItems += $item['cantidad'];
+            }
+        }
+    @endphp
+    @if($totalItems > 0)
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{ $totalItems }}
+            <span class="visually-hidden">productos en el carrito</span>
+        </span>
+    @endif
+</button>
+
+  </div>
+</nav>
+
+
+<!-- MENU LATERAL OFFCANVAS -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menú</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link text-white" href="{{ route('inicio') }}"><i class="fas fa-home"></i> Inicio</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="{{ route('productos.index') }}"><i class="fas fa-box"></i> Productos</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="{{ route('categorias.index') }}"><i class="fas fa-tags"></i> Categorías</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="{{ route('ventas.index') }}"><i class="fas fa-receipt"></i> Compras</a></li>
+      <li class="nav-item">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button class="nav-link btn btn-link text-white text-start" type="submit">
+            <i class="fas fa-sign-out-alt"></i> Salir
+          </button>
+        </form>
+      </li>
+    </ul>
+
+    <!-- Buscador en Offcanvas -->
+    <form action="{{ route('inicio') }}" method="GET" class="d-flex mt-4">
+      <input type="text" name="buscar" class="form-control me-2" placeholder="Buscar productos..." value="{{ request('buscar') }}">
+      <button type="submit" class="btn btn-outline-light"><i class="bi bi-search"></i></button>
+    </form>
+  </div>
+</div>
+
+
+        <!-- CONTENIDO -->
         <div class="content-wrapper">
-            <div class="container">
+            <div class="container animate-fadein">
                 @yield('content')
             </div>
         </div>
+
+        <!-- FOOTER -->
+        <footer class="footer py-4 mt-5">
+            <div class="container">
+                <div class="row footer-links">
+                    <div class="col-md-4 mb-3">
+                        <h5>Mercado Segunda Mano</h5>
+                        <p>Tu plataforma de compra y venta de segunda mano de confianza.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Contacto</h5>
+                        <p>Email: <a href="mailto:contacto@mercadosegundamano.com">contacto@mercadosegundamano.com</a>
+                        </p>
+                        <p>Teléfono: <a href="tel:+34600000000">+34 600 000 000</a></p>
+                        <p>Horario: Lunes a Viernes, 9:00 - 18:00</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Dónde Estamos</h5>
+                        <p>Av. de Concha Espina, 1, Chamartín, 28036 Madrid, España</p>
+                        <p>CP: 28000</p>
+                        <p>Mapa: <a
+                                href="https://www.google.com/maps/place/Estadio+Santiago+Bernab%C3%A9u/@40.4530428,-3.6909086,17z/data=!3m1!4b1!4m6!3m5!1s0xd4228e23705d39f:0xa8fff6d26e2b1988!8m2!3d40.4530387!4d-3.6883337!16zL20vMDFneGx0?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank">Ver en Google Maps</a></p>
+                    </div>
+                </div>
+                <div class="text-center pt-3 border-top border-secondary mt-3">
+                    &copy; {{ date('Y') }} Mercado Segunda Mano. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
     </div>
 
+    <!-- Offcanvas carrito lateral derecha -->
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasCarrito" aria-labelledby="offcanvasCarritoLabel" style="width: 350px;">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasCarritoLabel">Carrito de compras</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    @if(session()->has('carrito') && count(session('carrito')) > 0)
+        <ul class="list-group list-group-flush">
+            @foreach(session('carrito') as $producto)
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white border-secondary">
+                    <div>
+                        <strong>{{ $producto['nombre'] }}</strong><br>
+                        Cantidad: {{ $producto['cantidad'] }}<br>
+                        Precio: €{{ number_format($producto['precio'], 2) }}
+                    </div>
+                    <div>
+                        <!-- Opcional: botón para eliminar producto del carrito -->
+<form method="POST" action="{{ route('carrito.eliminar', $producto['id']) }}">
+    @csrf
+    <button class="btn btn-sm btn-danger" type="submit" title="Eliminar">
+        <i class="fas fa-trash"></i>
+    </button>
+</form>
 
-
-     <!-- Footer -->
- <footer class="bg-secondary text-light py-4 mt-5">
-    <div class="container">
-        <div class="row footer-links">
-            <div class="col-md-4 mb-3">
-                <h5>Mercado Segunda Mano</h5>
-                <p>Tu plataforma de compra y venta de segunda mano de confianza.</p>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h5>Contacto</h5>
-                <p>Email: <a style="color: #cfeeb2" href="mailto:contacto@mercadosegundamano.com">contacto@mercadosegundamano.com</a></p>
-                <p>Teléfono: <a style="color: #cfeeb2" href="tel:+34600000000">+34 600 000 000</a></p>
-                <p>Horario: Lunes a Viernes, 9:00 - 18:00</p>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h5>Dónde Estamos</h5>
-                <p>Av. de Concha Espina, 1, Chamartín, 28036 Madrid, España</p>
-                <p>CP: 28000</p>
-                <p>Mapa: <a style="color: #cfeeb2" href="https://earth.google.com/web/@40.4530387,-3.6883337,688.11790253a,624.92085394d,35y,0h,0t,0r/data=ChUaDwoJL20vMDFneGx0GAIgAUICCAE6AwoBMEICCABKDQj___________8BEAA" target="_blank" rel="noopener noreferrer">Ver en Google Earth</a></p>
-            </div>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+        <hr>
+        <div class="d-flex justify-content-between align-items-center">
+            <strong>Total:</strong>
+            <span>
+                €{{ number_format(array_reduce(session('carrito'), fn($sum, $item) => $sum + $item['precio'] * $item['cantidad'], 0), 2) }}
+            </span>
         </div>
-        <div class="text-center pt-3 border-top border-secondary">
-            &copy; {{ date('Y') }} Mercado Segunda Mano. Todos los derechos reservados.
+        <div class="mt-3">
+            <a href="{{ route('carrito.index') }}" class="btn btn-primary w-100">Ir al carrito completo</a>
         </div>
-    </div>
-</footer>
+    @else
+        <p>Tu carrito está vacío.</p>
+    @endif
+  </div>
+</div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
+
+
+
+
+
+

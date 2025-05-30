@@ -4,8 +4,7 @@
 
 <style>
     .inicio-background {
-        background-image: url('https://img.freepik.com/foto-gratis/escena-articulos-diversos-que-venden-venta-patio-ofertas_23-2151216773.jpg?ga=GA1.1.1972899165.1747238821&semt=ais_hybrid&w=740');
-        background-size: cover;
+         background-size: cover;
         background-position: center;
         min-height: 80vh;
         display: flex;
@@ -56,7 +55,7 @@
     }
 
     .btn-custom:hover {
-        background-color: firebrick;
+        background-color: rgb(18, 17, 17);
         color: black;
     }
 
@@ -116,7 +115,7 @@
 
         @foreach($categorias as $categoria)
             <div class="categoria mb-5">
-                <h2 class="categoria-title text-danger">{{ $categoria->nombre }}</h2>
+                <h2 class="categoria-title text-white">{{ $categoria->nombre }}</h2>
 
                 <div class="row">
                     @forelse($categoria->productos as $producto)

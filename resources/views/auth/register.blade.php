@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://media.istockphoto.com/id/522001766/photo/woman-standing-near-big-tropical-river.jpg?b=1&s=612x612&w=0&k=20&c=pg0EDjiCd-CMXenj0EAXQIzyLnd90OzaiSBTeEiJeD4=') no-repeat center center fixed;
+            background: url('https://images.unsplash.com/photo-1516912481808-3406841bd33c?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -93,8 +93,7 @@
 </head>
 <body>
     <div class="register-container">
-        <img src="https://www.zarla.com/images/zarla-cofre-secreto-1x1-2400x2400-20220216-7jf8k89h9g9wh8bgpjfq.png?crop=1:1,smart&width=250&dpr=2" alt="Logo" class="logo">
-        <h1>Registrar Cuenta</h1>
+       <img src="https://images.unsplash.com/photo-1646627928830-bfa637cd24f3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE1fHxsb2dvfGVufDB8fDB8fHww" alt="Logo" height="40" class="me-2"> <h1>Registrar Cuenta</h1>
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <input type="text" name="name" placeholder="Nombre completo" value="{{ old('name') }}" required>
